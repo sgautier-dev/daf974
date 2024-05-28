@@ -20,10 +20,10 @@ interface Feature {
 
 const features: Array<Feature> = [
   {
-    name: 'Reporting',
-    summary: 'Stay on top of things with always up-to-date reporting features.',
+    name: 'Directeur Administratif et Financier (DAF)',
+    summary: 'Gestion financière à temps partagé.',
     description:
-      'We talked about reporting in the section above but we needed three items here, so mentioning it one more time for posterity.',
+      'Le DAF externalisé met en place des outils d’analyse financière en temps réel et vous accompagne dans la prise de décisions stratégiques. Profitez de son savoir-faire pour optimiser la gestion de votre trésorerie, préparer vos budgets annuels et superviser le recouvrement de créances.',
     image: screenshotProfitLoss,
     icon: function ReportingIcon() {
       let id = useId()
@@ -54,11 +54,32 @@ const features: Array<Feature> = [
     },
   },
   {
-    name: 'Inventory',
-    summary:
-      'Never lose track of what’s in stock with accurate inventory tracking.',
+    name: 'Directeur Général Adjoint (DGA)',
+    summary: 'Assistance stratégique et opérationnelle.',
     description:
-      'We don’t offer this as part of our software but that statement is inarguably true. Accurate inventory tracking would help you for sure.',
+      'En tant que bras droit du dirigeant, le DGA externalisé apporte une vision stratégique et opérationnelle pour optimiser vos processus et atteindre vos objectifs de croissance. Il vous assiste dans l’analyse de vos ventes, le management de vos équipes, et la mise en place d’innovations produits et services.',
+    image: screenshotContacts,
+    icon: function ContactsIcon() {
+      return (
+        <>
+          <path
+            opacity=".5"
+            d="M25.778 25.778c.39.39 1.027.393 1.384-.028A11.952 11.952 0 0 0 30 18c0-6.627-5.373-12-12-12S6 11.373 6 18c0 2.954 1.067 5.659 2.838 7.75.357.421.993.419 1.384.028.39-.39.386-1.02.036-1.448A9.959 9.959 0 0 1 8 18c0-5.523 4.477-10 10-10s10 4.477 10 10a9.959 9.959 0 0 1-2.258 6.33c-.35.427-.354 1.058.036 1.448Z"
+            fill="#fff"
+          />
+          <path
+            d="M12 28.395V28a6 6 0 0 1 12 0v.395A11.945 11.945 0 0 1 18 30c-2.186 0-4.235-.584-6-1.605ZM21 16.5c0-1.933-.5-3.5-3-3.5s-3 1.567-3 3.5 1.343 3.5 3 3.5 3-1.567 3-3.5Z"
+            fill="#fff"
+          />
+        </>
+      )
+    },
+  },
+  {
+    name: 'Directeur Général Leveraged Buy-Out (DG LBO)',
+    summary: 'Accompagnement des investisseurs.',
+    description:
+      'Le DG LBO externalisé apporte une expertise stratégique pour mettre en œuvre des plans de développement ambitieux. Il optimise la création de valeur et la performance opérationnelle, naviguant les défis complexes des LBO pour maximiser les opportunités de croissance.',
     image: screenshotInventory,
     icon: function InventoryIcon() {
       return (
@@ -75,29 +96,6 @@ const features: Array<Feature> = [
           />
           <path
             d="M8 10a1 1 0 0 1 1-1h18a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2Z"
-            fill="#fff"
-          />
-        </>
-      )
-    },
-  },
-  {
-    name: 'Contacts',
-    summary:
-      'Organize all of your contacts, service providers, and invoices in one place.',
-    description:
-      'This also isn’t actually a feature, it’s just some friendly advice. We definitely recommend that you do this, you’ll feel really organized and professional.',
-    image: screenshotContacts,
-    icon: function ContactsIcon() {
-      return (
-        <>
-          <path
-            opacity=".5"
-            d="M25.778 25.778c.39.39 1.027.393 1.384-.028A11.952 11.952 0 0 0 30 18c0-6.627-5.373-12-12-12S6 11.373 6 18c0 2.954 1.067 5.659 2.838 7.75.357.421.993.419 1.384.028.39-.39.386-1.02.036-1.448A9.959 9.959 0 0 1 8 18c0-5.523 4.477-10 10-10s10 4.477 10 10a9.959 9.959 0 0 1-2.258 6.33c-.35.427-.354 1.058.036 1.448Z"
-            fill="#fff"
-          />
-          <path
-            d="M12 28.395V28a6 6 0 0 1 12 0v.395A11.945 11.945 0 0 1 18 30c-2.186 0-4.235-.584-6-1.605ZM21 16.5c0-1.933-.5-3.5-3-3.5s-3 1.567-3 3.5 1.343 3.5 3 3.5 3-1.567 3-3.5Z"
             fill="#fff"
           />
         </>
@@ -234,11 +232,13 @@ export function SecondaryFeatures() {
       <Container>
         <div className="mx-auto max-w-2xl md:text-center">
           <h2 className="font-display text-3xl tracking-tight text-slate-900 sm:text-4xl">
-            Simplify everyday business tasks.
+            Nos Services.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-slate-700">
-            Because you’d probably be a little confused if we suggested you
-            complicate your everyday business tasks instead.
+            Découvrez les services variés et spécialisés que nous proposons pour
+            répondre aux besoins spécifiques de votre entreprise. Que vous ayez
+            besoin de direction financière ou de gestion générale, DAF 974 est
+            là pour vous accompagner avec des solutions sur mesure.
           </p>
         </div>
         <FeaturesMobile />
