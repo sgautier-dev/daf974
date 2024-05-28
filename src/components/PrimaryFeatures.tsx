@@ -7,35 +7,35 @@ import clsx from 'clsx'
 
 import { Container } from '@/components/Container'
 import backgroundImage from '@/images/background-features.jpg'
-import screenshotExpenses from '@/images/screenshots/expenses.png'
-import screenshotPayroll from '@/images/screenshots/payroll.png'
-import screenshotReporting from '@/images/screenshots/reporting.png'
-import screenshotVatReturns from '@/images/screenshots/vat-returns.png'
+import expertise from '@/images/expertise.jpg'
+import flexibility from '@/images/flexibility.jpg'
+import collaboration from '@/images/collaboration.jpg'
+import economy from '@/images/economy.jpg'
 
 const features = [
   {
-    title: 'Payroll',
+    title: 'Expertise spécialisée',
     description:
-      "Keep track of everyone's salaries and whether or not they've been paid. Direct deposit not supported.",
-    image: screenshotPayroll,
+      "Nos directeurs externalisés apportent une expertise pointue dans divers secteurs d'activité. Leur expérience et leurs compétences spécifiques garantissent un accompagnement adapté et performant pour chaque projet.",
+    image: expertise,
   },
   {
-    title: 'Claim expenses',
+    title: 'Flexibilité',
     description:
-      "All of your receipts organized into one place, as long as you don't mind typing in the data by hand.",
-    image: screenshotExpenses,
+      "Profitez d'une flexibilité inégalée avec des solutions à temps partagé. Nos directeurs s'adaptent à vos besoins changeants, vous permettant d'ajuster facilement le niveau de support en fonction de votre activité.",
+    image: flexibility,
   },
   {
-    title: 'VAT handling',
+    title: 'Engagement',
     description:
-      "We only sell our software to companies who don't deal with VAT at all, so technically we do all the VAT stuff they need.",
-    image: screenshotVatReturns,
+      "Nos directeurs s'investissent pleinement dans vos projets. En tant que véritables partenaires d'affaires, ils travaillent avec dévouement pour atteindre vos objectifs et contribuer à la réussite de votre entreprise.",
+    image: collaboration,
   },
   {
-    title: 'Reporting',
+    title: 'Économie',
     description:
-      'Easily export your data into an Excel spreadsheet where you can do whatever the hell you want with it.',
-    image: screenshotReporting,
+      "Optez pour un modèle économiquement avantageux. Nos services à temps partagé vous permettent de bénéficier de l'expertise de directeurs de haut niveau sans les coûts associés à une embauche à temps plein.",
+    image: economy,
   },
 ]
 
@@ -76,11 +76,19 @@ export function PrimaryFeatures() {
       <Container className="relative">
         <div className="max-w-2xl md:mx-auto md:text-center xl:max-w-none">
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl md:text-5xl">
-            Everything you need to run your books.
+            Notre Singularité.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            Well everything you need if you aren’t that picky about minor
-            details like tax compliance.
+            DAF 974 offre aux dirigeants de PME l&apos;accès à des directeurs
+            externalisés à temps partagé, disponibles sans limites ! Cette
+            solution durable, économiquement équitable et performante, est
+            bénéfique tant pour les PME que pour les directeurs à temps partagé
+            de notre réseau. L&apos;avantage ? Bénéficier de l&apos;expertise
+            d&apos;un directeur opérationnel qualifié (DAF, DGA, DG, DG LBO,
+            etc.) qui s&apos;investit pleinement dans vos projets, sans les
+            contraintes d&apos;une embauche traditionnelle. En tant que Business
+            Partner, nous nous engageons à vos côtés pour atteindre vos
+            objectifs.
           </p>
         </div>
         <TabGroup
@@ -137,7 +145,7 @@ export function PrimaryFeatures() {
                         {feature.description}
                       </p>
                     </div>
-                    <div className="mt-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
+                    <div className="m-10 w-[45rem] overflow-hidden rounded-xl bg-slate-50 shadow-xl shadow-blue-900/20 sm:w-auto lg:mt-0 lg:w-[67.8125rem]">
                       <Image
                         className="w-full"
                         src={feature.image}

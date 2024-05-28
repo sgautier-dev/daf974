@@ -121,7 +121,9 @@ export function Header() {
             </div> */}
             <Button href="/register" color="blue">
               <span>
-                Prenez rendez-vous <span className="hidden lg:inline">aujourd&apos;hui</span>
+                Réservez{' '}
+                <span className="hidden lg:inline">votre rendez-vous</span>{' '}
+                maintenant
               </span>
             </Button>
             <div className="-mr-1 md:hidden">
