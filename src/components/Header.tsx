@@ -110,7 +110,7 @@ export function Header() {
             </Link>
             <div className="hidden md:flex md:gap-x-6">
               <NavLink href="#features">À propos</NavLink>
-              <NavLink href="#features">Services</NavLink>
+              <NavLink href="#secondary-features">Services</NavLink>
               <NavLink href="#testimonials">Témoignages</NavLink>
               {/* <NavLink href="#pricing">Pricing</NavLink> */}
             </div>
