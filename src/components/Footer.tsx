@@ -16,6 +16,7 @@ export function Footer() {
               <NavLink href="#secondary-features">Services</NavLink>
               <NavLink href="#testimonials">Témoignages</NavLink>
               <NavLink href="#pricing">Tarifs</NavLink>
+              <NavLink href="#contact">Contact</NavLink>
             </div>
           </nav>
         </div>
@@ -41,7 +42,8 @@ export function Footer() {
             </Link>
           </div>
           <p className="mt-6 text-sm text-slate-500 sm:mt-0">
-            Copyright &copy; {new Date().getFullYear()} DAF974. Tous droits réservés.
+            Copyright &copy; {new Date().getFullYear()} DAF974. Tous droits
+            réservés.
           </p>
         </div>
       </Container>

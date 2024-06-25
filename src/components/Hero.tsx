@@ -31,7 +31,7 @@ export function Hero() {
         DAF 974, des directeurs qualifiés pour accompagner vos projets.
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/register">Contactez-nous</Button>
+        <Button href="#contact">Contactez-nous</Button>
         {/* <Button href="#faq-title" variant="outline">
           <svg
             aria-hidden="true"

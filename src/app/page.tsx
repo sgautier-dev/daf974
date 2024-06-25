@@ -1,4 +1,5 @@
 import { CallToAction } from '@/components/CallToAction'
+import Contact from '@/components/Contact'
 // import { Faqs } from '@/components/Faqs'
 import { Footer } from '@/components/Footer'
 import { Header } from '@/components/Header'
@@ -19,6 +20,7 @@ export default function Home() {
         <CallToAction />
         <Testimonials />
         <Pricing />
+        <Contact/>
         {/* <Faqs /> */}
       </main>
       <Footer />
