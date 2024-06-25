@@ -55,6 +55,7 @@ function Plan({
   price,
   description,
   href,
+  btn,
   features,
   featured = false,
 }: {
@@ -62,6 +63,7 @@ function Plan({
   price: string
   description: string
   href: string
+  btn: string
   features: Array<string>
   featured?: boolean
 }) {
@@ -105,7 +107,7 @@ function Plan({
         className="mt-8"
         aria-label={`Get started with the ${name} plan for ${price}`}
       >
-        Prendre rendez-vous
+        {btn}
       </Button>
     </section>
   )
@@ -141,6 +143,7 @@ export function Pricing() {
             price="150 €HT/heure "
             description="Idéal pour des besoins de conseil à court terme."
             href="/register"
+            btn="Prendre rendez-vous"
             features={[
               'Conseil stratégique personnalisé',
               'Analyse et optimisation financière',
@@ -156,7 +159,8 @@ export function Pricing() {
             name="Service sur mesure"
             price="Sur devis"
             description="Pour des projets de longue durée ou des besoins spécifiques."
-            href="/register"
+            href="#contact"
+            btn="Contactez-nous"
             features={[
               "Analyse approfondie des besoins de l'entreprise",
               'Élaboration de stratégies à long terme',
