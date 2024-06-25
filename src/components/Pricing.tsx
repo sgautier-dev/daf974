@@ -105,7 +105,7 @@ function Plan({
         className="mt-8"
         aria-label={`Get started with the ${name} plan for ${price}`}
       >
-        Get started
+        Prendre rendez-vous
       </Button>
     </section>
   )
@@ -123,56 +123,48 @@ export function Pricing() {
           <h2 className="font-display text-3xl tracking-tight text-white sm:text-4xl">
             <span className="relative whitespace-nowrap">
               <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" />
-              <span className="relative">Simple pricing,</span>
+              <span className="relative">Tarifs simples,</span>
             </span>{' '}
-            for everyone.
+            et transparents.
           </h2>
           <p className="mt-4 text-lg text-slate-400">
-            It doesn’t matter what size your business is, our software won’t
-            work well for you.
+            Des tarifs clairs et adaptés à vos besoins. Que vous ayez besoin de
+            quelques heures de conseil ou d&apos;une prestation plus longue,
+            nous proposons des solutions flexibles pour mieux répondre à vos
+            attentes.
           </p>
         </div>
-        <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-3 xl:mx-0 xl:gap-x-8">
-          <Plan
-            name="Starter"
-            price="$9"
-            description="Good for anyone who is self-employed and just getting started."
-            href="/register"
-            features={[
-              'Send 10 quotes and invoices',
-              'Connect up to 2 bank accounts',
-              'Track up to 15 expenses per month',
-              'Manual payroll support',
-              'Export up to 3 reports',
-            ]}
-          />
+        <div className="-mx-4 mt-16 grid max-w-2xl grid-cols-1 gap-y-10 sm:mx-auto lg:-mx-8 lg:max-w-none lg:grid-cols-2 xl:mx-0 xl:gap-x-8">
           <Plan
             featured
-            name="Small business"
-            price="$15"
-            description="Perfect for small / medium sized businesses."
+            name="Intervention à la demande"
+            price="150 €HT/heure "
+            description="Idéal pour des besoins de conseil à court terme."
             href="/register"
             features={[
-              'Send 25 quotes and invoices',
-              'Connect up to 5 bank accounts',
-              'Track up to 50 expenses per month',
-              'Automated payroll support',
-              'Export up to 12 reports',
-              'Bulk reconcile transactions',
-              'Track in multiple currencies',
+              'Conseil stratégique personnalisé',
+              'Analyse et optimisation financière',
+              'Gestion de trésorerie et de budgets',
+              'Supervision du recouvrement de créances',
+              'Accompagnement lors de fusions et acquisitions',
+              'Mise en place d’indicateurs de performance',
+              'Support en management d’équipe',
+              'Élaboration et suivi de plans de croissance',
             ]}
           />
           <Plan
-            name="Enterprise"
-            price="$39"
-            description="For even the biggest enterprise companies."
+            name="Service sur mesure"
+            price="Sur devis"
+            description="Pour des projets de longue durée ou des besoins spécifiques."
             href="/register"
             features={[
-              'Send unlimited quotes and invoices',
-              'Connect up to 15 bank accounts',
-              'Track up to 200 expenses per month',
-              'Automated payroll support',
-              'Export up to 25 reports, including TPS',
+              "Analyse approfondie des besoins de l'entreprise",
+              'Élaboration de stratégies à long terme',
+              'Gestion de projets complexes',
+              'Suivi personnalisé et ajustements continus',
+              'Mise en place de processus opérationnels optimisés',
+              'Support complet en fusions et acquisitions',
+              'Reporting détaillé et recommandations stratégiques',
             ]}
           />
         </div>

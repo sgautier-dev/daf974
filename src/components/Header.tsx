@@ -123,7 +123,6 @@ export function Header() {
               <span>
                 Réservez{' '}
                 <span className="hidden lg:inline">votre rendez-vous</span>{' '}
-                maintenant
               </span>
             </Button>
             <div className="-mr-1 md:hidden">
