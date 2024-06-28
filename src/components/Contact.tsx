@@ -1,4 +1,5 @@
-// import { useState } from 'react'
+'use client'
+import { sendEmail } from '@/app/actions/sendEmail'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 // import { Field, Label, Switch } from '@headlessui/react'
 
@@ -34,11 +35,16 @@ export default function Contact() {
             vous contacterons dans les plus brefs délais.
           </p>
         </div>
-        <form action="#" className="mx-auto mt-16 max-w-xl sm:mt-20">
+        <form
+          action={async (formData) => {
+            await sendEmail(formData)
+          }}
+          className="mx-auto mt-16 max-w-xl sm:mt-20"
+        >
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
             <div>
               <label
-                htmlFor="first-name"
+                htmlFor="firstName"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
                 Prénom
@@ -46,16 +52,17 @@ export default function Contact() {
               <div className="mt-2.5">
                 <input
                   type="text"
-                  name="first-name"
-                  id="first-name"
+                  name="firstName"
+                  id="firstName"
                   autoComplete="given-name"
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
             <div>
               <label
-                htmlFor="last-name"
+                htmlFor="lastName"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
                 Nom
@@ -63,10 +70,11 @@ export default function Contact() {
               <div className="mt-2.5">
                 <input
                   type="text"
-                  name="last-name"
-                  id="last-name"
+                  name="lastName"
+                  id="lastName"
                   autoComplete="family-name"
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
@@ -84,6 +92,7 @@ export default function Contact() {
                   id="company"
                   autoComplete="organization"
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
@@ -101,15 +110,16 @@ export default function Contact() {
                   id="email"
                   autoComplete="email"
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
+                  required
                 />
               </div>
             </div>
             <div className="sm:col-span-2">
               <label
-                htmlFor="phone-number"
+                htmlFor="phone"
                 className="block text-sm font-semibold leading-6 text-gray-900"
               >
-                Numéro de téléphone
+                Numéro de téléphone (optionnel)
               </label>
               <div className="relative mt-2.5">
                 <div className="absolute inset-y-0 left-0 flex items-center">
@@ -132,8 +142,8 @@ export default function Contact() {
                 </div>
                 <input
                   type="tel"
-                  name="phone-number"
-                  id="phone-number"
+                  name="phone"
+                  id="phone"
                   autoComplete="tel"
                   className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                 />
@@ -152,7 +162,7 @@ export default function Contact() {
                   id="message"
                   rows={4}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
-                  defaultValue={''}
+                  required
                 />
               </div>
             </div>
