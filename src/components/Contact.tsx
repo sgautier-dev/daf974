@@ -2,6 +2,10 @@
 import { sendEmail } from '@/app/actions/sendEmail'
 import { ChevronDownIcon } from '@heroicons/react/20/solid'
 // import { Field, Label, Switch } from '@headlessui/react'
+import { useAction } from 'next-safe-action/hooks'
+import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
+import { DisplayServerActionResponse } from './DisplayServerActionResponse'
+import Script from 'next/script'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -9,6 +13,82 @@ function classNames(...classes: string[]) {
 
 export default function Contact() {
   //   const [agreed, setAgreed] = useState(false)
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    company: '',
+    email: '',
+    country: 'RE',
+    phone: '',
+    message: '',
+  })
+  const formRef = useRef<HTMLFormElement>(null)
+  const { execute, result, isExecuting } = useAction(sendEmail)
+
+  //hidding Google reCaptcha badge from page
+  useEffect(() => {
+    const style = document.createElement('style')
+    style.innerHTML = `
+		  .grecaptcha-badge {
+			visibility: hidden !important;
+		  }
+		`
+    document.head.appendChild(style)
+  }, [])
+
+  const getRecaptchaToken = async () => {
+    try {
+      const token = await window.grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
+        { action: 'contact_form' },
+      )
+      return token
+    } catch (error) {
+      console.error(error)
+      return null
+    }
+  }
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+  ) => {
+    const { name, value } = e.target
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }))
+  }
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+
+    const token = await getRecaptchaToken()
+
+    if (!token) {
+      alert('Erreur lors de la vérification de sécurité. Veuillez réessayer.')
+
+      return
+    }
+
+    execute(formData)
+  }
+
+  useEffect(() => {
+    if (!isExecuting && result.data?.message) {
+      if (formRef.current) {
+        formRef.current.reset() // Reset form
+      }
+      setFormData({
+        firstName: '',
+        lastName: '',
+        company: '',
+        email: '',
+        country: 'RE',
+        phone: '',
+        message: '',
+      })
+    }
+  }, [isExecuting, result])
 
   return (
     <section id="contact" aria-label="Contact">
@@ -36,9 +116,8 @@ export default function Contact() {
           </p>
         </div>
         <form
-          action={async (formData) => {
-            await sendEmail(formData)
-          }}
+          ref={formRef}
+          onSubmit={handleSubmit}
           className="mx-auto mt-16 max-w-xl sm:mt-20"
         >
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
@@ -55,6 +134,8 @@ export default function Contact() {
                   name="firstName"
                   id="firstName"
                   autoComplete="given-name"
+                  value={formData.firstName}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -73,6 +154,8 @@ export default function Contact() {
                   name="lastName"
                   id="lastName"
                   autoComplete="family-name"
+                  value={formData.lastName}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -91,6 +174,8 @@ export default function Contact() {
                   name="company"
                   id="company"
                   autoComplete="organization"
+                  value={formData.company}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -109,6 +194,8 @@ export default function Contact() {
                   name="email"
                   id="email"
                   autoComplete="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -129,6 +216,8 @@ export default function Contact() {
                   <select
                     id="country"
                     name="country"
+                    value={formData.country}
+                    onChange={handleChange}
                     className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm"
                   >
                     <option>RE</option>
@@ -145,6 +234,8 @@ export default function Contact() {
                   name="phone"
                   id="phone"
                   autoComplete="tel"
+                  value={formData.phone}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                 />
               </div>
@@ -161,6 +252,8 @@ export default function Contact() {
                   name="message"
                   id="message"
                   rows={4}
+                  value={formData.message}
+                  onChange={handleChange}
                   className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-blue-600 sm:text-sm sm:leading-6"
                   required
                 />
@@ -198,13 +291,18 @@ export default function Contact() {
           <div className="mt-10">
             <button
               type="submit"
+              disabled={isExecuting}
               className="block w-full rounded-md bg-blue-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-blue-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-600"
             >
-              Prenons contact
+              {isExecuting ? 'En cours...' : 'Prenons contact'}
             </button>
           </div>
         </form>
+        <DisplayServerActionResponse result={result} />
       </div>
+      <Script
+        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
+      />
     </section>
   )
 }
