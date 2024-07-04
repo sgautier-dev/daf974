@@ -65,7 +65,7 @@ export default function Contact() {
     const token = await getRecaptchaToken()
 
     if (!token) {
-      alert('Erreur lors de la vérification de sécurité. Veuillez réessayer.')
+      alert('Erreur lors de la vérification de sécurité reCaptcha. Veuillez réessayer.')
 
       return
     }
@@ -76,7 +76,7 @@ export default function Contact() {
   useEffect(() => {
     if (!isExecuting && result.data?.message) {
       if (formRef.current) {
-        formRef.current.reset() // Reset form
+        formRef.current.reset() // Reset form if success
       }
       setFormData({
         firstName: '',

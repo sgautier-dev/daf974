@@ -35,7 +35,8 @@ export const sendEmail = actionClient
         message,
       },
     }) => {
-      
+      // throw new Error ('test')
+
       await resend.emails.send({
         from: 'DAF974 Contact <onboarding@resend.dev>',
         to: ['sgautier.dev@gmail.com'],
@@ -51,8 +52,6 @@ export const sendEmail = actionClient
           message: message as string,
         }),
       })
-
-      // throw new Error ('test')
 
       return {
         message: 'Envoyé avec succès !',
