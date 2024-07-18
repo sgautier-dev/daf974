@@ -38,8 +38,8 @@ export const sendEmail = actionClient
       // throw new Error ('test')
 
       await resend.emails.send({
-        from: 'DAF974 Contact <onboarding@resend.dev>',
-        to: ['sgautier.dev@gmail.com'],
+        from: 'DAF974 Contact <contact@daf974.re>',
+        to: ['contact@daf974.re'],
         reply_to: email as string,
         subject: `Message de ${firstName} ${lastName}`,
         react: React.createElement(EmailTemplate, {
