@@ -27,7 +27,7 @@ export function CallToAction() {
             Faites appel à un directeur externalisé pour des conseils
             stratégiques et opérationnels.
           </p>
-          <Button href="/register" color="white" className="mt-10">
+          <Button href="/calendar" color="white" className="mt-10">
             Prenez rendez-vous dès aujourd&apos;hui
           </Button>
         </div>
