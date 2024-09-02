@@ -1,8 +1,10 @@
 import Link from 'next/link'
-
+import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
+import logoRegion from '@/images/logos/SITE-RR QUADRI.jpg'
+import logoUE from '@/images/logos/FR Cofinancé par l’Union européenne_POS_2.jpg'
 
 export function Footer() {
   return (
@@ -11,7 +13,7 @@ export function Footer() {
         <div className="py-16">
           <Logo className="mx-auto h-10 w-auto" />
           <nav className="mt-10 text-sm" aria-label="quick links">
-            <div className="-my-1 text-center sm:flex sm:justify-center gap-x-6">
+            <div className="-my-1 gap-x-6 text-center sm:flex sm:justify-center">
               <NavLink href="#features">À propos</NavLink>
               <NavLink href="#secondary-features">Services</NavLink>
               <NavLink href="#testimonials">Témoignages</NavLink>
@@ -19,11 +21,31 @@ export function Footer() {
               <NavLink href="#contact">Contact</NavLink>
             </div>
           </nav>
+          <div className="mx-auto mt-10 grid max-w-lg place-items-center gap-1 md:grid-cols-2 md:gap-3">
+            <Image
+              src={logoRegion}
+              placeholder="blur"
+              alt="logo de la région réunion"
+              width={150}
+              className="aspect-auto object-cover"
+            />
+            <Image
+              src={logoUE}
+              placeholder="blur"
+              alt="logo union européenne"
+              width={150}
+              className="aspect-auto object-cover"
+            />
+            <p className="col-span-2 mt-4 self-start text-center text-[10px]">
+              Ce site a été financé par l’Union Européenne dans le cadre du
+              programme FEDER-FSE+ Réunion dont l’Autorité de gestion est la
+              Région Réunion. L’Europe s’engage à La Réunion avec le fonds FEDER
+            </p>
+          </div>
         </div>
         <div className="flex flex-col items-center border-t border-slate-400/10 py-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">
             <Link href="#" className="group" aria-label="DAF974 on LinkedIn">
-              
               <svg
                 className="h-6 w-6 fill-slate-500 group-hover:fill-slate-700"
                 aria-hidden="true"
