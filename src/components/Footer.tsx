@@ -3,8 +3,8 @@ import Image from 'next/image'
 import { Container } from '@/components/Container'
 import { Logo } from '@/components/Logo'
 import { NavLink } from '@/components/NavLink'
-import logoRegion from '@/images/logos/SITE-RR QUADRI.jpg'
-import logoUE from '@/images/logos/FR Cofinancé par l’Union européenne_POS_2.jpg'
+import logoRegion from '@/images/logos/RegionLogo.jpg'
+import logoUE from '@/images/logos/EuropeLogo.jpg'
 
 export function Footer() {
   return (
