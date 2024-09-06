@@ -7,10 +7,10 @@ import '@/styles/tailwind.css'
 export const metadata: Metadata = {
   title: {
     template: '%s - DAF974',
-    default: 'DAF974 - Votre partenaire business à temps partagé',
+    default: 'DAF974 - Votre partenaire business à temps partagé à la Réunion',
   },
   description:
-    'Des directeurs qualifiés pour accompagner vos projets.',
+    'Des directeurs qualifiés pour accompagner vos projets à la Réunion.',
 }
 
 const inter = Inter({

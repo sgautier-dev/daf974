@@ -24,7 +24,7 @@ export function CallToAction() {
             Saisissez cette opportunité.
           </h2>
           <p className="mt-4 text-lg tracking-tight text-white">
-            Faites appel à un directeur externalisé pour des conseils
+            Faites appel à un directeur externalisé à la Réunion pour des conseils
             stratégiques et opérationnels.
           </p>
           <Button href="/calendar" color="white" className="mt-10">

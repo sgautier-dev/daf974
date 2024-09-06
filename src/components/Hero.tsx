@@ -28,7 +28,7 @@ export function Hero() {
         </span>{' '}
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        DAF 974, des directeurs qualifiés pour accompagner vos projets.
+        DAF 974, des directeurs qualifiés pour accompagner vos projets à la Réunion.
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
         <Button href="#contact">Contactez-nous</Button>

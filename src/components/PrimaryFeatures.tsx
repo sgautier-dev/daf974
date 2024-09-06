@@ -79,7 +79,7 @@ export function PrimaryFeatures() {
             Notre Singularité.
           </h2>
           <p className="mt-6 text-lg tracking-tight text-blue-100">
-            DAF 974 offre aux dirigeants de PME l&apos;accès à des directeurs
+            DAF 974 offre aux dirigeants de PME à la Réunion l&apos;accès à des directeurs
             externalisés à temps partagé, disponibles sans limites ! Cette
             solution durable, économiquement équitable et performante, est
             bénéfique tant pour les PME que pour les directeurs à temps partagé
