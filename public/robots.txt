@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: daf974-site.vercel.app
+
+# Sitemaps
+Sitemap: daf974-site.vercel.app/sitemap.xml
