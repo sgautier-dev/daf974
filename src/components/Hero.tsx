@@ -2,12 +2,10 @@ import Image from 'next/image'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import logoLaravel from '@/images/logos/laravel.svg'
-import logoMirage from '@/images/logos/mirage.svg'
-import logoStatamic from '@/images/logos/statamic.svg'
-import logoStaticKit from '@/images/logos/statickit.svg'
-import logoTransistor from '@/images/logos/transistor.svg'
-import logoTuple from '@/images/logos/tuple.svg'
+import logoMorgabine from '@/images/logos/Morgabine Hospitality-mini.jpg'
+import logoPredict from '@/images/logos/Predict4Health-mini.jpg'
+import logoMdoi from '@/images/logos/LOGO-MDOI-mini.jpg'
+import logoArchives from '@/images/logos/archivesreunion-mini.jpg'
 
 export function Hero() {
   return (
@@ -28,7 +26,8 @@ export function Hero() {
         </span>{' '}
       </h1>
       <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        DAF 974, des directeurs qualifiés pour accompagner vos projets à la Réunion.
+        DAF 974, des directeurs qualifiés pour accompagner vos projets à la
+        Réunion.
       </p>
       <div className="mt-10 flex justify-center gap-x-6">
         <Button href="#contact">Contactez-nous</Button>
@@ -52,15 +51,11 @@ export function Hero() {
         >
           {[
             [
-              { name: 'Transistor', logo: logoTransistor },
-              { name: 'Tuple', logo: logoTuple },
-              { name: 'StaticKit', logo: logoStaticKit },
+              { name: 'MDOI', logo: logoMdoi },
+              { name: 'Archives Réunion', logo: logoArchives },
+              { name: 'Predict4Health', logo: logoPredict },
             ],
-            [
-              { name: 'Mirage', logo: logoMirage },
-              { name: 'Laravel', logo: logoLaravel },
-              { name: 'Statamic', logo: logoStatamic },
-            ],
+            [{ name: 'Morgabine hospitality', logo: logoMorgabine }],
           ].map((group, groupIndex) => (
             <li key={groupIndex}>
               <ul
