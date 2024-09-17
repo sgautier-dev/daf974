@@ -11,60 +11,40 @@ const testimonials = [
   [
     {
       content:
-        'DAF974 is so easy to use I can’t help but wonder if it’s really doing the things the government expects me to do.',
+        'L’accompagnement de DAF974 a été déterminant dans la mise en place de nos indicateurs de performance et notre stratégie de croissance externe. Leur disponibilité et leur capacité d’analyse ont vraiment fait la différence dans notre développement.',
       author: {
-        name: 'Sheryl Berge',
-        role: 'CEO at Lynch LLC',
-        image: avatarImage1,
+        name: 'Guy DAUDON',
+        role: 'Dirigeant de MDOI',
+        // image: avatarImage1,
       },
     },
     {
       content:
-        'I’m trying to get a hold of someone in support, I’m in a lot of trouble right now and they are saying it has something to do with my books. Please get back to me right away.',
+        'Grâce à DAF974, nous avons non seulement optimisé nos indicateurs de performance, mais également mené à bien un projet complexe. Leur expertise et leur bienveillance ont été essentielles à chaque étape.',
       author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
-        image: avatarImage4,
-      },
-    },
-  ],
-  [
-    {
-      content:
-        'The best part about DAF974 is every time I pay my employees, my bank balance doesn’t go down like it used to. Looking forward to spending this extra cash when I figure out why my card is being declined.',
-      author: {
-        name: 'Leland Kiehn',
-        role: 'Founder of Kiehn and Sons',
-        image: avatarImage5,
-      },
-    },
-    {
-      content:
-        'There are so many things I had to do with my old software that I just don’t do at all with DAF974. Suspicious but I can’t say I don’t love it.',
-      author: {
-        name: 'Erin Powlowski',
-        role: 'COO at Armstrong Inc',
-        image: avatarImage2,
+        name: 'Thierry MARCIA',
+        role: 'Dirigeant d’Archives Réunion',
+        // image: avatarImage4,
       },
     },
   ],
   [
     {
       content:
-        'I used to have to remit tax to the EU and with DAF974 I somehow don’t have to do that anymore. Nervous to travel there now though.',
+        'DAF974 nous a accompagné dès la reprise du Tribunal de Commerce jusqu’à la levée de fonds. Leur disponibilité et leur analyse pointue ont été des atouts précieux pour notre succès.',
       author: {
-        name: 'Peter Renolds',
-        role: 'Founder of West Inc',
-        image: avatarImage3,
+        name: 'Pierrick ARNAL',
+        role: 'Dirigeant de Predict4Health',
+        // image: avatarImage5,
       },
     },
     {
       content:
-        'This is the fourth email I’ve sent to your support team. I am literally being held in jail for tax fraud. Please answer your damn emails, this is important.',
+        'Le conseil stratégique de DAF974 et leur défense constante de nos intérêts ont été remarquables. Leur bienveillance et leur compréhension des enjeux complexes nous ont permis de naviguer sereinement à chaque étape.',
       author: {
-        name: 'Amy Hahn',
-        role: 'Director at Velocity Industries',
-        image: avatarImage4,
+        name: 'Jean-Claude BOYER',
+        role: 'Dirigeant de Morgabine Hospitality',
+        // image: avatarImage2,
       },
     },
   ],
@@ -100,7 +80,7 @@ export function Testimonials() {
         </div>
         <ul
           role="list"
-          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-3"
+          className="mx-auto mt-16 grid max-w-2xl grid-cols-1 gap-6 sm:gap-8 lg:mt-20 lg:max-w-none lg:grid-cols-2"
         >
           {testimonials.map((column, columnIndex) => (
             <li key={columnIndex}>
@@ -123,7 +103,7 @@ export function Testimonials() {
                             {testimonial.author.role}
                           </div>
                         </div>
-                        <div className="overflow-hidden rounded-full bg-slate-50">
+                        {/* <div className="overflow-hidden rounded-full bg-slate-50">
                           <Image
                             className="h-14 w-14 object-cover"
                             src={testimonial.author.image}
@@ -131,7 +111,7 @@ export function Testimonials() {
                             width={56}
                             height={56}
                           />
-                        </div>
+                        </div> */}
                       </figcaption>
                     </figure>
                   </li>
