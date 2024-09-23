@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   },
   description:
     'Des directeurs qualifiés pour accompagner vos projets à la Réunion.',
+    authors: [{ name: "Sébastien Gautier", url: "https://www.sgautier.dev" }],
 }
 
 const inter = Inter({

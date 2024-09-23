@@ -73,6 +73,13 @@ export function Footer() {
             Copyright &copy; {new Date().getFullYear()} DAF974. Tous droits
             réservés.
           </p>
+          <a
+            href="https://www.sgautier.dev/"
+            target="_blank"
+            className="mt-6 text-sm text-slate-500 sm:mt-0"
+          >
+            <p translate="no">Designed by SG</p>
+          </a>
         </div>
       </Container>
     </footer>
