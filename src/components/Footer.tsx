@@ -19,6 +19,7 @@ export function Footer() {
               <NavLink href="#testimonials">Témoignages</NavLink>
               <NavLink href="#pricing">Tarifs</NavLink>
               <NavLink href="#contact">Contact</NavLink>
+              <NavLink href="/mentions">Mentions</NavLink>
             </div>
           </nav>
           <div className="mx-auto mt-10 grid max-w-lg place-items-center gap-1 md:grid-cols-2 md:gap-3">
