@@ -142,7 +142,8 @@ export function Pricing() {
             name="Intervention à la demande"
             price="150 €HT/heure "
             description="Idéal pour des besoins de conseil à court terme."
-            href="/calendar"
+            // href="/calendar"
+            href="#contact"
             btn="Prendre rendez-vous"
             features={[
               'Conseil stratégique personnalisé',
