@@ -5,6 +5,7 @@ import { Resend } from 'resend'
 import { z } from 'zod'
 import { actionClient } from '../lib/safe-action'
 import { flattenValidationErrors } from 'next-safe-action'
+import { checkArcJetProtection } from '../lib/arcjet-protection'
 
 const resend = new Resend(process.env.RESEND_API_KEY)
 
@@ -36,6 +37,8 @@ export const sendEmail = actionClient
       },
     }) => {
       // throw new Error ('test')
+
+      await checkArcJetProtection()
 
       await resend.emails.send({
         from: 'DAF974 Contact <contact@daf974.re>',

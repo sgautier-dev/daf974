@@ -5,7 +5,6 @@ import { ChevronDownIcon } from '@heroicons/react/20/solid'
 import { useAction } from 'next-safe-action/hooks'
 import { ChangeEvent, FormEvent, useEffect, useRef, useState } from 'react'
 import { DisplayServerActionResponse } from './DisplayServerActionResponse'
-import Script from 'next/script'
 
 function classNames(...classes: string[]) {
   return classes.filter(Boolean).join(' ')
@@ -25,30 +24,6 @@ export default function Contact() {
   const formRef = useRef<HTMLFormElement>(null)
   const { execute, result, isExecuting } = useAction(sendEmail)
 
-  //hidding Google reCaptcha badge from page
-  useEffect(() => {
-    const style = document.createElement('style')
-    style.innerHTML = `
-		  .grecaptcha-badge {
-			visibility: hidden !important;
-		  }
-		`
-    document.head.appendChild(style)
-  }, [])
-
-  const getRecaptchaToken = async () => {
-    try {
-      const token = await window.grecaptcha.execute(
-        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY,
-        { action: 'contact_form' },
-      )
-      return token
-    } catch (error) {
-      console.error(error)
-      return null
-    }
-  }
-
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
   ) => {
@@ -61,14 +36,6 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()
-
-    const token = await getRecaptchaToken()
-
-    if (!token) {
-      alert('Erreur lors de la vérification de sécurité reCaptcha. Veuillez réessayer.')
-
-      return
-    }
 
     execute(formData)
   }
@@ -300,9 +267,6 @@ export default function Contact() {
         </form>
         <DisplayServerActionResponse result={result} />
       </div>
-      <Script
-        src={`https://www.google.com/recaptcha/api.js?render=${process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}`}
-      />
     </section>
   )
 }

@@ -1,50 +1,92 @@
+import Notification from "./Notification"
+import { useState, useEffect } from "react"
+
 type Props = {
-  result: {
-    data?: {
-      message?: string
-    }
-    serverError?: string
-    fetchError?: string
-    validationErrors?: Record<string, string[] | undefined> | undefined
-  }
+	result: {
+		data?: {
+			message?: string
+		}
+		serverError?: string
+		fetchError?: string
+		validationErrors?: Record<string, string[] | undefined> | undefined
+	}
 }
 
 export function DisplayServerActionResponse({ result }: Props) {
-  const { data, serverError, fetchError, validationErrors } = result
+	const { data, serverError, fetchError, validationErrors } = result
 
-  return (
-    <div className="mx-auto mt-3 max-w-xl sm:mt-4">
-      {/* Success Message */}
-      {data?.message ? <h2 className="my-2 text-xl text-gray-600 font-semibold">{data.message}</h2> : null}
+	const [showSuccess, setShowSuccess] = useState(!!data?.message)
+	const [showServerError, setShowServerError] = useState(!!serverError)
+	const [showFetchError, setShowFetchError] = useState(!!fetchError)
+	const [showValidationErrors, setShowValidationErrors] = useState(true) // Show if we have any
 
-      {serverError ? (
-        <div className="my-2 text-red-500">
-          <p>
-            Erreur serveur, veuillez réessayer plus tard.{' '}
-            <span className="italic">({serverError})</span>
-          </p>
-        </div>
-      ) : null}
+	useEffect(() => {
+		setShowSuccess(!!data?.message)
+	}, [data])
 
-      {fetchError ? (
-        <div className="my-2 text-red-500">
-          <p>
-            Erreur de récupération, veuillez vérifier votre connexion.{' '}
-            <span className="italic">({fetchError})</span>
-          </p>
-        </div>
-      ) : null}
+	useEffect(() => {
+		setShowServerError(!!serverError)
+	}, [serverError])
 
-      {validationErrors ? (
-        <div className="my-2 text-red-500">
-          {Object.keys(validationErrors).map((key) => (
-            <p key={key}>{`${key}: ${
-              validationErrors &&
-              validationErrors[key as keyof typeof validationErrors]
-            }`}</p>
-          ))}
-        </div>
-      ) : null}
-    </div>
-  )
+	useEffect(() => {
+		setShowFetchError(!!fetchError)
+	}, [fetchError])
+
+	useEffect(() => {
+		setShowValidationErrors(
+			!!validationErrors && Object.keys(validationErrors).length > 0
+		)
+	}, [validationErrors])
+
+	return (
+		<>
+			{data?.message && (
+				<Notification
+					show={showSuccess}
+					onClose={() => setShowSuccess(false)}
+					title="Succès !"
+					message={data.message}
+					variant="success"
+				/>
+			)}
+
+			{serverError && (
+				<Notification
+					show={showServerError}
+					onClose={() => setShowServerError(false)}
+					title="Erreur serveur"
+					message="Veuillez réessayer plus tard."
+					variant="error"
+				/>
+			)}
+
+			{fetchError && (
+				<Notification
+					show={showFetchError}
+					onClose={() => setShowFetchError(false)}
+					title="Erreur réseau"
+					message="Vérifiez votre connexion."
+					variant="error"
+				/>
+			)}
+
+			{validationErrors &&
+				showValidationErrors &&
+				Object.keys(validationErrors).map((key) => {
+					const errors = validationErrors[key]
+					return (
+						<Notification
+							key={key}
+							show={true}
+							onClose={() => {
+								setShowValidationErrors(false)
+							}}
+							title="Erreur de validation"
+							message={`${key}: ${errors?.join(", ")}`}
+							variant="error"
+						/>
+					)
+				})}
+		</>
+	)
 }
